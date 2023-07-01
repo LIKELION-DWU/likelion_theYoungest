@@ -1,3 +1,3 @@
 # likelion_theYoungest
 
-hyun : git test issue
+hyun : git test issues
