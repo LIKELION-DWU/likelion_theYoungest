@@ -63,6 +63,6 @@ function createWhiteBox(var1, var2) {
   };
 }
 
-function goToLoginPage(){
-    window.location.href = "login.html";
+function goToLoginPage() {
+  window.location.href = "login.html";
 }
