@@ -45,3 +45,8 @@ def post_update(request, id) :
     else :
         context = {'post' : post}
         return render(request, 'check.html', context)
+    
+def post_delete(request, id) :
+    post = Post.objects.get(pk=id)
+    post.delete()   
+    return redirect('home')

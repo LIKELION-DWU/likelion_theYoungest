@@ -35,7 +35,8 @@
     <div id="grayArea">
       <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        <img src="{% static 'images/deltete.png' %}" id="delete" onclick="deleteContent()">
+        <img src="{% static 'images/deltete.png' %}" id="delete"
+          onclick="location.href='{% url 'post_delete' post.id %}'">
         <input type="image" src="{% static 'images/correctionBox.png' %}" id="correctionBox">
         <input type="image" src="{% static 'images/correction.png' %}" id="correction">
         <div id="scroll">
@@ -46,7 +47,9 @@
                 <hr id="line">
                 </hr>
                 <div>
+                  {% if post.image %}
                   <img src="{{ post.image.url }}" width="200px" height="200px" />
+                  {% endif %}
                 </div>
                 <textarea id="content" name="content">{{ post.content }}</textarea>
               </div>

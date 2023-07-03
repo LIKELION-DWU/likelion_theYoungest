@@ -41,11 +41,11 @@
       <div id="whiteBoxArea">
         <div id="whiteBox">
           {% for post in post_list %}
-          <a href="{% url 'post_update' post.id %}" style="text-decoration: none;
-        color: black;">
+          <a href="{% url 'post_update' post.id %}" style="text-decoration: none; color: black;">
             {% include 'list.html' with list=True %}
-            <hr id="line">
-            {% endfor %}
+          </a>
+          <hr id="line">
+          {% endfor %}
         </div>
       </div>
     </div>
@@ -56,7 +56,7 @@
       <img src="{% static 'images/circle.png' %}" id="circle">
       <img src="{% static 'images/input.png' %}" id="input" onclick="location.href='{% url 'create' %}'">
       <img src="{% static 'images/data.png' %}" id="data">
-      <img src="{% static 'images/shop.png' %}" id="shop">
+      <img src="{% static 'images/shop.png' %}" id="shop" onclick="location.href='{% url 'home' %}'" />
       <div id="logout" onclick="goToLoginPage()">로그아웃</div>
     </div>
   </div>
