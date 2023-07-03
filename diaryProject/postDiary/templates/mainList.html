@@ -41,9 +41,11 @@
       <div id="whiteBoxArea">
         <div id="whiteBox">
           {% for post in post_list %}
-          {% include 'list.html' with list=True %}
-          <hr>
-          {% endfor %}
+          <a href="{% url 'post_update' post.id %}" style="text-decoration: none;
+        color: black;">
+            {% include 'list.html' with list=True %}
+            <hr id="line">
+            {% endfor %}
         </div>
       </div>
     </div>

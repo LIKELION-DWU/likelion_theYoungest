@@ -33,39 +33,45 @@
 <body>
   <div id="container">
     <div id="grayArea">
-      <img src="{% static 'images/deltete.png' %}" id="delete" onclick="deleteContent()">
-      <img src="{% static 'images/correctionBox.png' %}" id="correctionBox" onclick="correctionContent()">
-      <img src="{% static 'images/correction.png' %}" id="correction" onclick="correctionContent()">
-      <div id="scroll">
-        <div id="whiteBoxArea">
-          <div id="whiteBox">
-            <div id="whiteBoxContent">
-              <div id="date"></div>
-              <hr id="line">
-              </hr>
-              <textarea id="content">오늘 무슨 일이 있었냐면...</textarea>
+      <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <img src="{% static 'images/deltete.png' %}" id="delete" onclick="deleteContent()">
+        <input type="image" src="{% static 'images/correctionBox.png' %}" id="correctionBox">
+        <input type="image" src="{% static 'images/correction.png' %}" id="correction">
+        <div id="scroll">
+          <div id="whiteBoxArea">
+            <div id="whiteBox">
+              <div id="whiteBoxContent">
+                <div>{{ post.titleDate }}</div>
+                <hr id="line">
+                </hr>
+                <div>
+                  <img src="{{ post.image.url }}" width="200px" height="200px" />
+                </div>
+                <textarea id="content" name="content">{{ post.content }}</textarea>
+              </div>
+            </div>
+          </div>
+
+          <div id="comment">
+            <div id="count"></div>
+            <div id="commentInput">
+              <img src="{% static 'images/commentSave.png' %}" id="commentSave">
+              <img src="{% static 'images/commentSave2.png' %}" id="commentSave2">
+            </div>
+            <div id="commentBox">
+              <img src="{% static 'images/profile.png' %}" id="profile" width="38px">
+              <div id="name">미영</div>
+              <div id="commentContent">왜 글을 쓰다마세요..</div>
+            </div>
+            <div id="commentBox">
+              <img src="{% static 'images/profile.png' %}" id="profile" width="38px">
+              <div id="name">미영</div>
+              <div id="commentContent">더 써주세요...</div>
             </div>
           </div>
         </div>
-
-        <div id="comment">
-          <div id="count"></div>
-          <div id="commentInput">
-            <img src="{% static 'images/commentSave.png' %}" id="commentSave">
-            <img src="{% static 'images/commentSave2.png' %}" id="commentSave2">
-          </div>
-          <div id="commentBox">
-            <img src="{% static 'images/profile.png' %}" id="profile" width="38px">
-            <div id="name">미영</div>
-            <div id="commentContent">왜 글을 쓰다마세요..</div>
-          </div>
-          <div id="commentBox">
-            <img src="{% static 'images/profile.png' %}" id="profile" width="38px">
-            <div id="name">미영</div>
-            <div id="commentContent">더 써주세요...</div>
-          </div>
-        </div>
-      </div>
+      </form>
     </div>
     <img src="{% static 'images/Rectangle 8.png' %}" id="greenBox" width="390px">
     <div id="greenArea">
@@ -73,7 +79,7 @@
       <img src="{% static 'images/circle.png' %}" id="circle">
       <img src="{% static 'images/input.png' %}" id="input">
       <img src="{% static 'images/data.png' %}" id="data">
-      <img src="{% static 'images/shop.png' %}" id="shop">
+      <img src="{% static 'images/shop.png' %}" id="shop" onclick="location.href='{% url 'home' %}'">
       <div id="logout" onclick="goToLoginPage()">로그아웃</div>
     </div>
   </div>
