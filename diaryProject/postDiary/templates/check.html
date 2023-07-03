@@ -61,20 +61,37 @@
           </div>
 
           <div id="comment">
+<<<<<<< HEAD
             <div id="count"></div>
             {% if user.is_authenticated %}
             <div id="commentInput">
               <img src="{% static 'images/commentSave.png' %}" id="commentSave">
               <img src="{% static 'images/commentSave2.png' %}" id="commentSave2">
             </div>
+=======
+            <form action="" method="POST">
+              {% csrf_token %}
+              <div id="count"></div>
+
+              <div id="commentInput">
+                <input type="image" src="{% static 'images/commentSave.png' %}" id="commentSave">
+                <input type="image" src="{% static 'images/commentSave2.png' %}" id="commentSave2">
+              </div>
+            </form>
+
+>>>>>>> main
             <div id="commentBox">
               <img src="{% static 'images/profile.png' %}" id="profile" width="38px">
               <div id="name">미영</div>
               <div id="commentContent">왜 글을 쓰다마세요..</div>
             </div>
+<<<<<<< HEAD
             {% else %}
             로그인 후 사용해주세요 !
             {% endif %}
+=======
+
+>>>>>>> main
           </div>
         </div>
       </form>
