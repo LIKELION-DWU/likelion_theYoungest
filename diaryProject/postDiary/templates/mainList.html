@@ -40,8 +40,11 @@
       </div>
       <div id="whiteBoxArea">
         <div id="whiteBox">
+          {% for post in post_list %}
+          {% include 'list.html' with list=True %}
+          <hr>
+          {% endfor %}
         </div>
-
       </div>
     </div>
 
@@ -49,7 +52,7 @@
     <div id="greenArea">
       <img src="{% static 'images/calender.png' %}" id="calender">
       <img src="{% static 'images/circle.png' %}" id="circle">
-      <img src="{% static 'images/input.png' %}" id="input" onclick="goToInputPage()">
+      <img src="{% static 'images/input.png' %}" id="input" onclick="location.href='{% url 'create' %}'">
       <img src="{% static 'images/data.png' %}" id="data">
       <img src="{% static 'images/shop.png' %}" id="shop">
       <div id="logout" onclick="goToLoginPage()">로그아웃</div>
