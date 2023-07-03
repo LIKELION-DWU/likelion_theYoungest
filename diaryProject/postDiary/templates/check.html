@@ -27,15 +27,15 @@
       font-family: 'Noto Sans KR', sans-serif;
     }
   </style>
-  <link rel="stylesheet" href="css/check.css" />
+  <link rel="stylesheet" href="{% static 'css/check.css' %}" />
 </head>
 
 <body>
   <div id="container">
     <div id="grayArea">
-      <img src="images/deltete.png" id="delete" onclick="deleteContent()">
-      <img src="images/correctionBox.png" id="correctionBox" onclick="correctionContent()">
-      <img src="images/correction.png" id="correction" onclick="correctionContent()">
+      <img src="{% static 'images/deltete.png' %}" id="delete" onclick="deleteContent()">
+      <img src="{% static 'images/correctionBox.png' %}" id="correctionBox" onclick="correctionContent()">
+      <img src="{% static 'images/correction.png' %}" id="correction" onclick="correctionContent()">
       <div id="scroll">
         <div id="whiteBoxArea">
           <div id="whiteBox">
@@ -51,32 +51,33 @@
         <div id="comment">
           <div id="count"></div>
           <div id="commentInput">
-            <img src="/mages/commentSave.png" id="commentSave"><img src="images/commentSave2.png" id="commentSave2">
+            <img src="{% static 'images/commentSave.png' %}" id="commentSave">
+            <img src="{% static 'images/commentSave2.png' %}" id="commentSave2">
           </div>
           <div id="commentBox">
-            <img src="images/profile.png" id="profile" width="38px">
+            <img src="{% static 'images/profile.png' %}" id="profile" width="38px">
             <div id="name">미영</div>
             <div id="commentContent">왜 글을 쓰다마세요..</div>
           </div>
           <div id="commentBox">
-            <img src="images/profile.png" id="profile" width="38px">
+            <img src="{% static 'images/profile.png' %}" id="profile" width="38px">
             <div id="name">미영</div>
             <div id="commentContent">더 써주세요...</div>
           </div>
         </div>
       </div>
     </div>
-    <img src="images/Rectangle 8.png" id="greenBox" width="390px">
+    <img src="{% static 'images/Rectangle 8.png' %}" id="greenBox" width="390px">
     <div id="greenArea">
-      <img src="images/calender.png" id="calender">
-      <img src="images/circle.png" id="circle">
-      <img src="images/input.png" id="input">
-      <img src="images/data.png" id="data">
-      <img src="images/shop.png" id="shop">
+      <img src="{% static 'images/calender.png' %}" id="calender">
+      <img src="{% static 'images/circle.png' %}" id="circle">
+      <img src="{% static 'images/input.png' %}" id="input">
+      <img src="{% static 'images/data.png' %}" id="data">
+      <img src="{% static 'images/shop.png' %}" id="shop">
       <div id="logout" onclick="goToLoginPage()">로그아웃</div>
     </div>
   </div>
 </body>
-<script src="script/check.js"></script>
+<script src="{% static 'script/check.js' %}"></script>
 
 </html>

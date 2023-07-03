@@ -1,0 +1,17 @@
+{% load static %}
+{% if list %}
+<link rel="stylesheet" href="{% static 'css/mainList.css' %}" />
+
+<div>
+    <h5>{{ post.titleDate }}</h5>
+</div>
+
+{% else %}
+<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+<div class="whiteBox">
+    <div>
+        <h5>{{ post.titleDate }}</h5>
+        <p>{{ post.content }}</p>
+    </div>
+</div>
+{% endif %}
