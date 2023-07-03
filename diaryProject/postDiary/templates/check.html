@@ -35,10 +35,14 @@
     <div id="grayArea">
       <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        {% if request.user == post.writer %}
         <img src="{% static 'images/deltete.png' %}" id="delete"
           onclick="location.href='{% url 'post_delete' post.id %}'">
         <input type="image" src="{% static 'images/correctionBox.png' %}" id="correctionBox">
         <input type="image" src="{% static 'images/correction.png' %}" id="correction">
+        {% else %}
+        <div><br><br><br> </div>
+        {% endif %}
         <div id="scroll">
           <div id="whiteBoxArea">
             <div id="whiteBox">
@@ -58,6 +62,7 @@
 
           <div id="comment">
             <div id="count"></div>
+            {% if user.is_authenticated %}
             <div id="commentInput">
               <img src="{% static 'images/commentSave.png' %}" id="commentSave">
               <img src="{% static 'images/commentSave2.png' %}" id="commentSave2">
@@ -67,11 +72,9 @@
               <div id="name">미영</div>
               <div id="commentContent">왜 글을 쓰다마세요..</div>
             </div>
-            <div id="commentBox">
-              <img src="{% static 'images/profile.png' %}" id="profile" width="38px">
-              <div id="name">미영</div>
-              <div id="commentContent">더 써주세요...</div>
-            </div>
+            {% else %}
+            로그인 후 사용해주세요 !
+            {% endif %}
           </div>
         </div>
       </form>
@@ -83,7 +86,11 @@
       <img src="{% static 'images/input.png' %}" id="input">
       <img src="{% static 'images/data.png' %}" id="data">
       <img src="{% static 'images/shop.png' %}" id="shop" onclick="location.href='{% url 'home' %}'">
-      <div id="logout" onclick="goToLoginPage()">로그아웃</div>
+      {% if user.is_authenticated %}
+      <div id="logout" onclick="location.href='{% url 'accounts:logout' %}'">로그아웃</div>
+      {% else %}
+      <div id="logout" onclick="location.href='{% url 'accounts:login' %}'">로그인</div>
+      {% endif %}
     </div>
   </div>
 </body>

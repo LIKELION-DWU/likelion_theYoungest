@@ -28,6 +28,7 @@ urlpatterns = [
     # path('check/<int:id>/', views.post_detail, name='check'),
     path('update/<int:id>/', views.post_update, name='post_update'),
     path('delete/<int:id>/', views.post_delete, name='post_delete'),
+    path('accounts/', include('accounts.urls', namespace='accounts')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
