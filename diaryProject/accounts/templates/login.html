@@ -32,21 +32,27 @@
 <body>
   <div id="container">
     <div id="loginArea">
+      {% if bad %}
+      <div>잘못된 로그인입니다. 다시 로그인해주세요.</div>
+      {% endif %}
       <div id="loginWrapper">
+
         <div id="login">로그인</div>
-        <form method="post" id="loginForm">
+        <form method="POST" id="loginForm" class="user">
+          {% csrf_token %}
           <div id="ID">ID</div>
-          <input type="text" name="userName" />
+          <input type="text" name="userName" placeholder="아이디를 입력해주세요." />
           <div id="PW">PW</div>
-          <input type="password" name="userPassword" />
+          <input type="password" name="userPassword" placeholder="비밀번호를 입력해주세요." />
+          <input type="submit" id="submit" value="로그인하기">
         </form>
-        <input type="submit" id="submit" value="로그인하기" onclick="login()">
-        <div id="join" onclick="goToJoinPage()">회원 가입 하기</div>
+
+        <div id="join" onclick="location.href='{% url 'accounts:signup' %}'">회원 가입 하기</div>
         <div id="search">아이디/비밀번호 찾기</div>
       </div>
     </div>
   </div>
   <script src="{% static 'script/login.js' %}"></script>
-</body>
+</body>\
 
 </html>

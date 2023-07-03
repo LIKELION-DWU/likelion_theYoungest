@@ -33,14 +33,17 @@
   <div id="container">
     <div id="joinArea">
       <div id="joinWrapper">
+
         <div id="join">회원가입</div>
-        <form method="post" id="joinForm">
+        <form method="POST" id="joinForm" class="user">
+          {% csrf_token %}
           <div id="ID">ID</div>
-          <input type="text" name="userName" />
+          <input type="text" name="userName" placeholder="Enter Your ID" />
           <div id="PW">PW</div>
-          <input type="password" name="userPassword" />
+          <input type="password" name="userPassword" placeholder="Password" />
+          <input type="submit" value="등록" onclick="location.href='{% url 'accounts:login' %}'" />
         </form>
-        <input type="submit" value="등록" onclick="goToLoginPage()" />
+
       </div>
     </div>
   </div>
