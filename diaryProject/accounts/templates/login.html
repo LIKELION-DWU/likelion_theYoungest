@@ -32,11 +32,14 @@
 <body>
   <div id="container">
     <div id="loginArea">
+      <!-- 잘못된 로그인 시 !! 이 문구가 나오고 아래는 똑같이 로그인 창임 !! -->
       {% if bad %}
-      <div>잘못된 로그인입니다. 다시 로그인해주세요.</div>
+      <div id="faultLogin">
+        잘못된 로그인입니다.<br />다시 로그인해주세요.
+      </div>
       {% endif %}
-      <div id="loginWrapper">
 
+      <div id="loginWrapper">
         <div id="login">로그인</div>
         <form method="POST" id="loginForm" class="user">
           {% csrf_token %}

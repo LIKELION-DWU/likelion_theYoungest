@@ -7,7 +7,7 @@
   <meta name="viewport"
     content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 
-  <title>메인_타일</title>
+  <title>Home</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet" />
@@ -38,11 +38,13 @@
         <img src="{% static 'images/list0.png' %}" id="list" width="42px" onclick="location.href='{% url 'list' %}'" />
         <img src="{% static 'images/tile1.png' %}" id="tile" width="100px" />
       </div>
+
+      <!-- list.html을 for문을 이용해 반복해서 받는 코드 -->
       <div id="whiteBoxArea">
         {% for post in post_list %}
         <a href="{% url 'post_update' post.id %}" style="text-decoration: none;
         color: black;">
-          {% include 'list.html' with list=False %}
+          {% include 'list.html' %}
         </a>
         {% endfor %}
       </div>

@@ -2,6 +2,12 @@
   padding-top: 206px;
   margin-left: 46px;
 }
+#faultLogin {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 #loginWrapper {
   background-color: #aad6a0;
   width: 299px;

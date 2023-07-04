@@ -20,8 +20,15 @@
   top: 79px;
 }
 #whiteBoxArea {
+  overflow-y: scroll;
   padding-top: 5vh;
+  width: 390px;
+  height: 500px;
 }
+#whiteBoxArea::-webkit-scrollbar {
+  display: none;
+}
+
 .whiteBox {
   background-color: white;
   width: 132px;
@@ -34,20 +41,37 @@
 }
 .whiteBoxContent {
   width: 105px;
-  height: 161px;
-  padding-top: 13px;
-  padding-left: 13px;
+  height: 100px;
+  left: 67px;
+  top: 199px;
+  margin: auto;
+  padding-left: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: left;
+  color: #000000;
 }
 .boxDate {
-  color: #4c7343;
-  font-weight: bold;
+  width: 108px;
+  height: 43px;
+  left: 72px;
+  top: 144px;
+  margin: 0 auto;
+  padding-top: 15px;
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 700;
   font-size: 15px;
-  text-align: left;
+  line-height: 20px;
+  color: #4c7343;
 }
 
 .line {
   width: 105px;
-  background-color: #bcbcbc;
+  height: 0px;
+  margin: auto;
+  padding-top: 0px;
+  border: 1px solid #bcbcbc;
 }
 .content {
   font-size: 14px;
@@ -55,7 +79,6 @@
 }
 #grayArea {
   height: 548px;
-  overflow-y: scroll;
 }
 #grayArea::-webkit-scrollbar {
   display: none;
@@ -103,12 +126,12 @@
   left: 4vh;
 }
 #logout {
-    width: 52px;
-    height: 25px;
-    color: #fffbd9;
-    background: #4C7343;
-    font-size: 12px;
-    bottom: 4vh;
-    right: 4vh;
-    padding-top: 5px;
-  }
+  width: 52px;
+  height: 25px;
+  color: #fffbd9;
+  background: #4c7343;
+  font-size: 12px;
+  bottom: 4vh;
+  right: 4vh;
+  padding-top: 5px;
+}
