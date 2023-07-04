@@ -57,7 +57,6 @@
   text-align: left;
   font-size: 16px;
   width: 238px;
-  height: 300px;
   border: none;
   resize: none;
 }
@@ -68,7 +67,7 @@
   height: 448px;
 }
 #commentInput {
-  width: 318px;
+  width: 300px;
   height: 79px;
   border-radius: 10px;
   background: #fff;
@@ -76,15 +75,15 @@
 }
 #commentSave {
   float: right;
-  margin-right: 10px;
-  margin-top: 40px;
+  margin-right: 20px;
+  margin-top: 50px;
   width: 30px;
   height: 30px;
 }
 #commentSave2 {
   float: right;
   margin-right: -23px;
-  margin-top: 48px;
+  margin-top: 58px;
   width: 13.5px;
   height: 13.5px;
 }
@@ -105,6 +104,7 @@
   margin-top: 15px;
   border-radius: 10px;
   box-shadow: 0 0px 20px #d0d0d0;
+  margin-left: 35px;
 }
 #profile {
   float: left;
@@ -123,7 +123,7 @@
 #scroll {
   overflow-y: scroll;
   width: 400px;
-  height: 450px;
+  height: 440px;
 }
 #scroll::-webkit-scrollbar {
   display: none;

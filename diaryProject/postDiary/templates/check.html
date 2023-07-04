@@ -59,43 +59,35 @@
               </div>
             </div>
           </div>
+      </form>
 
-          <div id="comment">
-<<<<<<< HEAD
-            <div id="count"></div>
-            {% if user.is_authenticated %}
-            <div id="commentInput">
-              <img src="{% static 'images/commentSave.png' %}" id="commentSave">
-              <img src="{% static 'images/commentSave2.png' %}" id="commentSave2">
-            </div>
-=======
-            <form action="" method="POST">
-              {% csrf_token %}
-              <div id="count"></div>
-
-              <div id="commentInput">
-                <input type="image" src="{% static 'images/commentSave.png' %}" id="commentSave">
-                <input type="image" src="{% static 'images/commentSave2.png' %}" id="commentSave2">
-              </div>
-            </form>
-
->>>>>>> main
-            <div id="commentBox">
-              <img src="{% static 'images/profile.png' %}" id="profile" width="38px">
-              <div id="name">미영</div>
-              <div id="commentContent">왜 글을 쓰다마세요..</div>
-            </div>
-<<<<<<< HEAD
-            {% else %}
-            로그인 후 사용해주세요 !
-            {% endif %}
-=======
-
->>>>>>> main
+      <!-- 댓글 -->
+      {% if user.is_authenticated %} <!-- 로그인 되어있다면 댓글 창 열림 -->
+      <div id="comment">
+        <div id="count"></div>
+        <form method="POST">
+          {% csrf_token %}
+          <div id="commentInput">
+            <input type="text" name="comment" /> <!-- comment 라는 name 에서 댓글 내용을 가져옴-->
+            <input type="image" src="{% static 'images/commentSave.png' %}" id="commentSave">
+            <input type="image" src="{% static 'images/commentSave2.png' %}" id="commentSave2">
           </div>
-        </div>
+      </div>
+
+      <!-- 댓글 목록들 !! -> 나중에 for 문 이용해서 내용 가져오기 -->
+      <div id="commentBox">
+        <img src="{% static 'images/profile.png' %}" id="profile" width="38px"> <!-- 그냥 다 같은 사진으로 하기 -->
+        <div id="name">미영</div> <!-- writer -->
+        <div id="commentContent">왜 글을 쓰다마세요..</div> <!-- comment -->
+      </div>
+      {% else %}
+      <div><br>
+        로그인 후에 댓글 이용이 가능합니다!
+      </div>
+      {% endif %}
       </form>
     </div>
+
     <img src="{% static 'images/Rectangle 8.png' %}" id="greenBox" width="390px">
     <div id="greenArea">
       <img src="{% static 'images/calender.png' %}" id="calender">
@@ -110,6 +102,7 @@
       {% endif %}
     </div>
   </div>
+
 </body>
 <script src="{% static 'script/check.js' %}"></script>
 

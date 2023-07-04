@@ -12,17 +12,18 @@
 #tile {
   position: absolute;
   top: 79px;
-  left: 136px;
+  left: 120px;
 }
 #list {
   position: absolute;
-  left: 189px;
+  left: 168px;
   top: 73px;
 }
 #whiteBoxArea {
   padding-top: 5vh;
   margin-left: 36px;
 }
+
 #whiteBox {
   background-color: white;
   width: 318px;
@@ -37,7 +38,14 @@
 .whiteBoxContent {
   padding-top: 13px;
   padding-left: 13px;
+  left: 67px;
+  top: 199px;
+  margin: 0;
+  padding-left: 8px;
+  font-size: 14px;
+  text-align: left;
 }
+
 .boxDate {
   color: #4c7343;
   font-weight: bold;
@@ -57,11 +65,14 @@
 .line {
   width: 260px;
   background-color: #bcbcbc;
+  padding-top: 0px;
+  margin-top: 0px;
 }
 
 #grayArea {
   height: 548px;
 }
+
 #greenBox {
   position: absolute;
   bottom: 0;
@@ -108,7 +119,7 @@
   width: 52px;
   height: 25px;
   color: #fffbd9;
-  background: #4C7343;
+  background: #4c7343;
   font-size: 12px;
   bottom: 4vh;
   right: 4vh;
