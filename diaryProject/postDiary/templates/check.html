@@ -48,12 +48,14 @@
           <div id="whiteBoxArea">
             <div id="whiteBox">
               <div id="whiteBoxContent">
-                <div>{{ post.titleDate }}</div>
+                <div id="boxDate">{{ post.titleDate|date:"Y년 m월 d일 D" }}</div>
                 <hr id="line">
                 </hr>
                 <div>
                   {% if post.image %}
-                  <img src="{{ post.image.url }}" width="200px" height="200px" />
+                  <p align="left">
+                    <img src="{{ post.image.url }}" width="200px" height="200px" />
+                  </p>
                   {% endif %}
                 </div>
                 <textarea id="content" name="content">{{ post.content }}</textarea>
@@ -67,9 +69,10 @@
       <form method="POST">
         {% csrf_token %}
         <div id="comment">
-          <div id="count"></div> <!-- {#{comment_count}#}-->
+          <div id="count">댓글(1)</div> <!-- {#{comment_count}#}-->
           <div id="commentInput">
-            <input type="text" name="comment_content" /> <!-- comment_content 라는 name 에서 댓글 내용을 가져옴-->
+            <input type="text" name="comment_content"
+              placeholder="댓글을 입력해주세요." /><!-- comment_content 라는 name 에서 댓글 내용을 가져옴-->
             <input type="image" src="{% static 'images/commentSave.png' %}" id="commentSave">
             <input type="image" src="{% static 'images/commentSave2.png' %}" id="commentSave2">
           </div>
