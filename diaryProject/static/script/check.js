@@ -25,8 +25,6 @@ function deleteContent() {
   localStorage.removeItem("saveText");
   window.location.href = "main.html";
 }
-//댓글수
-document.getElementById("count").innerText = "댓글(" + 2 + ")";
 
 function goToLoginPage() {
   window.location.href = "login.html";

@@ -16,7 +16,7 @@
 }
 #date {
   padding-top: 4vh;
-  font-weight: bolder;
+  /* font-weight: bolder; */
   color: #4c7343;
   font-weight: bold;
   font-size: 20px;
@@ -43,7 +43,10 @@
 }
 #boxDate {
   color: #4c7343;
-  font-weight: bold;
+  font-weight: bolder;
+  text-align: left;
+  padding-bottom: 0px;
+  font-size: 18px;
 }
 
 #line {
@@ -116,9 +119,11 @@
   padding-top: 13px;
   color: #4c7343;
   font-weight: bolder;
+  text-align: left;
 }
 #commentContent {
   margin-left: 73px;
+  text-align: left;
 }
 #scroll {
   overflow-y: scroll;
