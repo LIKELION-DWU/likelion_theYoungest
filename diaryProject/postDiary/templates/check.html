@@ -33,6 +33,7 @@
 <body>
   <div id="container">
     <div id="grayArea">
+
       <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         {% if request.user == post.writer %}
@@ -63,36 +64,41 @@
 
       <!-- 댓글 -->
       {% if user.is_authenticated %} <!-- 로그인 되어있다면 댓글 창 열림 -->
-      <div id="comment">
-        <div id="count"></div>
-        <form method="POST">
-          {% csrf_token %}
+      <form method="POST">
+        {% csrf_token %}
+        <div id="comment">
+          <div id="count"></div> <!-- {#{comment_count}#}-->
           <div id="commentInput">
-            <input type="text" name="comment" /> <!-- comment 라는 name 에서 댓글 내용을 가져옴-->
+            <input type="text" name="comment_content" /> <!-- comment_content 라는 name 에서 댓글 내용을 가져옴-->
             <input type="image" src="{% static 'images/commentSave.png' %}" id="commentSave">
             <input type="image" src="{% static 'images/commentSave2.png' %}" id="commentSave2">
           </div>
-      </div>
+        </div>
 
-      <!-- 댓글 목록들 !! -> 나중에 for 문 이용해서 내용 가져오기 -->
-      <div id="commentBox">
-        <img src="{% static 'images/profile.png' %}" id="profile" width="38px"> <!-- 그냥 다 같은 사진으로 하기 -->
-        <div id="name">미영</div> <!-- writer -->
-        <div id="commentContent">왜 글을 쓰다마세요..</div> <!-- comment -->
-      </div>
-      {% else %}
-      <div><br>
-        로그인 후에 댓글 이용이 가능합니다!
-      </div>
-      {% endif %}
+        <!-- 템플릿언어를 주석처리하려면 {# (내용) #} 이라서 #이 쓰여있는거니까 할떄는 지우고 해용!!-->
+        <!-- 댓글 목록들 !! -> 나중에 for 문 이용해서 코드 짜서 댓글 내용들 가져오기 -->
+        <!-- { #% for  %#} --> <!-- for문으로 구현하기 뒤에 내용은 변수에 따라 써주세요 (지정한변수) -->
+        <div id="commentBox">
+          <img src="{% static 'images/profile.png' %}" id="profile" width="38px"> <!-- 그냥 다 같은 사진으로 하기 -->
+          <div id="name">미영</div> <!-- writer 템플릿 언어로 집어넣기 {#{ (지정한변수).writer #}}-->
+          <div id="commentContent">왜 글을 쓰다마세요..</div> <!-- comment 내용 템플릿 언어로 집어넣기 {#{(지정한 변수).comment}#} -->
+        </div>
+        <!-- 삭제하는거 할 때는 => {#% if request.user == post.writer %#} : 작성자여야지만 삭제하도록 해주세용-->
+
+        <!-- {#% endfor %#}  -->
+        {% else %}
+        <div><br>
+          로그인 후에 댓글 이용이 가능합니다!
+        </div>
+        {% endif %}
       </form>
     </div>
 
     <img src="{% static 'images/Rectangle 8.png' %}" id="greenBox" width="390px">
     <div id="greenArea">
       <img src="{% static 'images/calender.png' %}" id="calender">
-      <img src="{% static 'images/circle.png' %}" id="circle">
-      <img src="{% static 'images/input.png' %}" id="input">
+      <img src="{% static 'images/circle.png' %}" id="circle" onclick="location.href='{% url 'create' %}'">
+      <img src="{% static 'images/input.png' %}" id="input" onclick="location.href='{% url 'create' %}'">
       <img src="{% static 'images/data.png' %}" id="data">
       <img src="{% static 'images/shop.png' %}" id="shop" onclick="location.href='{% url 'home' %}'">
       {% if user.is_authenticated %}
@@ -102,7 +108,6 @@
       {% endif %}
     </div>
   </div>
-
 </body>
 <script src="{% static 'script/check.js' %}"></script>
 
