@@ -31,6 +31,7 @@
 
 <body>
   <div id="container">
+
     <div id="grayArea">
       <div id="date">2023년 XX월 XX일</div>
       <div id="choice">
@@ -42,18 +43,19 @@
       <!-- list.html을 for문을 이용해 반복해서 받는 코드 -->
       <div id="whiteBoxArea">
         {% for post in post_list %}
-        <a href="{% url 'post_update' post.id %}" style="text-decoration: none;
-        color: black;">
+        <a href="{% url 'post_update' post.id %}" style="text-decoration: none; color: black;">
           {% include 'list.html' %}
         </a>
         {% endfor %}
       </div>
+
     </div>
+
 
     <img src="{% static 'images/Rectangle 8.png' %}" id="greenBox" width="390px" />
     <div id="greenArea">
       <img src="{% static 'images/calender.png' %}" id="calender" />
-      <img src="{% static 'images/circle.png' %}" id="circle" />
+      <img src="{% static 'images/circle.png' %}" id="circle" onclick="location.href='{% url 'create' %}'" />
       <img src="{% static 'images/input.png' %}" id="input" onclick="location.href='{% url 'create' %}'" />
       <img src="{% static 'images/data.png' %}" id="data" />
       <img src="{% static 'images/shop.png' %}" id="shop" onclick="location.href='{% url 'home' %}'" />
@@ -63,8 +65,9 @@
       <div id="logout" onclick="location.href='{% url 'accounts:login' %}'">로그인</div>
       {% endif %}
     </div>
+
   </div>
-  <script src="{% static 'script/main.js' %}"></script>
 </body>
+<script src="{% static 'script/main.js' %}"></script>
 
 </html>
