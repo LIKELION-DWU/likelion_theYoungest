@@ -46,7 +46,7 @@
         <div id="whiteBox">
           {% for post in post_list %}
           <a href="{% url 'post_update' post.id %}" style="text-decoration: none; color: black;">
-            {% include 'listRectangle.html' %}
+            {% include 'listRectangle.html' with comment_count=post.comment_count %}
           </a>
           <hr class="line">
           </hr>

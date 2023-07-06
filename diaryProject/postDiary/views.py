@@ -11,11 +11,17 @@ def home(request):
     }
     return render(request, "main.html", context)
 
+def get_count(post):
+    comment_list = Comment.objects.filter(post=post)
+    comment_count = comment_list.count()
+    return comment_count
+
 def mainlist(request) : 
     post_list = Post.objects.all().order_by('-id')
-    context = {
-        'post_list' : post_list,
-    }
+    context = {'post_list': post_list}
+    for post in post_list:
+        comment_count = get_count(post)
+        post.comment_count = comment_count
     return render(request, "mainList.html", context)
 
 @login_required

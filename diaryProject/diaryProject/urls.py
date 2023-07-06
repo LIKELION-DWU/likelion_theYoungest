@@ -25,12 +25,12 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('lists/', views.mainlist, name='list'),
     path('create/', views.create, name='create'),
-    # path('check/<int:id>/', views.post_detail, name='check'),
     path('update/<int:id>/', views.post_update, name='post_update'),
     path('delete/<int:id>/', views.post_delete, name='post_delete'),
     path('accounts/', include('accounts.urls', namespace='accounts')),
     path('create_comment/<int:id>/', views.comment_create, name='comment_create'),
     path('delete_comment/<int:post_id>/<int:com_id>/', views.comment_delete, name='comment_delete'),
+    path('count/<int:id>/', views.get_count, name='get_count'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
