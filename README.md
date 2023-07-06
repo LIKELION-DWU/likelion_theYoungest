@@ -1,5 +1,4 @@
 # 🦁 likelion_theYoungest
-<br>
 
 ## 🦁 막내팀 노션
 https://www.notion.so/hyunnnny/1-_-WorkSpace-d44a479e0244460d8c546a78b3128c57?pvs=4
