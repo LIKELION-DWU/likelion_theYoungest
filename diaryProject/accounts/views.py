@@ -5,11 +5,19 @@ from django.contrib.auth.models import User
 # Create your views here.
 def signup(request)  :
     if request.method == "POST" :
-        new_user = User.objects.create_user(username=request.POST['userName'], password=request.POST['userPassword'])
-        auth.login(request, new_user)
-        print("회원가입 성공")
-        return redirect('home')
-    return render(request, 'join.html')
+        username = request.POST['userName']
+        password = password=request.POST['userPassword']
+        user = auth.authenticate(request, username=username, password=password)
+        if user is None :
+            new_user = User.objects.create_user(username=username, password=password)
+            auth.login(request, new_user)
+            print("회원가입 성공")
+            return redirect('home') 
+        else :
+            return render(request, 'bad_join.html')
+    
+    else :
+        return render(request, 'join.html')
 
 def login(request) :
     if request.method == "POST" :

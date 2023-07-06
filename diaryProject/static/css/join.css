@@ -56,3 +56,10 @@ input:last-child {
   margin: 0 auto;
   border: none;
 }
+
+#faultJoin {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
