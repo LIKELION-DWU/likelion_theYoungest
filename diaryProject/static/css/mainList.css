@@ -5,19 +5,17 @@
   font-size: 16px;
 }
 #base {
-  position: relative;
-  left: -2px;
-  top: 20px;
+  margin-top: 20px;
 }
 #tile {
   position: absolute;
-  top: 79px;
-  left: 120px;
+  margin-top: 25px;
+  margin-left: -154px;
 }
 #list {
   position: absolute;
-  left: 168px;
-  top: 73px;
+  margin-left: -102px;
+  margin-top: 20px;
 }
 #whiteBoxArea {
   padding-top: 5vh;
@@ -54,7 +52,8 @@
   float: left;
   width: 70%;
   margin-left: 24px;
-  margin-bottom: 5px;
+  margin-top: -1px;
+  margin-bottom: 8px;
 }
 .count {
   font-weight: bolder;

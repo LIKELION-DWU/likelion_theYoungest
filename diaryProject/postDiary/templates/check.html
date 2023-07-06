@@ -23,6 +23,10 @@
       background-color: #F5F5f5;
     }
 
+    input::placeholder {
+      vertical-align: text-top;
+    }
+
     * {
       font-family: 'Noto Sans KR', sans-serif;
     }
@@ -66,13 +70,17 @@
 
       <!-- 댓글 -->
       {% if user.is_authenticated %} <!-- 로그인 되어있다면 댓글 창 열림 -->
-      <form method="POST">
+      <form method="POST" action="{% url 'comment_create' post.id %}">
         {% csrf_token %}
         <div id="comment">
-          <div id="count">댓글(1)</div> <!-- {#{comment_count}#}-->
+          {% if comment_list %}
+          <div id="count">댓글({{comment_count}})</div>
+          {% else %}
+          <div id="count">댓글(0)</div>
+          {% endif %}
           <div id="commentInput">
-            <input type="text" name="comment_content"
-              placeholder="댓글을 입력해주세요." /><!-- comment_content 라는 name 에서 댓글 내용을 가져옴-->
+            <textarea name="comment_content" id="comment_content"
+              placeholder="댓글을 입력해주세요."></textarea><!-- comment_content 라는 name 에서 댓글 내용을 가져옴-->
             <input type="image" src="{% static 'images/commentSave.png' %}" id="commentSave">
             <input type="image" src="{% static 'images/commentSave2.png' %}" id="commentSave2">
           </div>
@@ -81,14 +89,17 @@
         <!-- 템플릿언어를 주석처리하려면 {# (내용) #} 이라서 #이 쓰여있는거니까 할떄는 지우고 해용!!-->
         <!-- 댓글 목록들 !! -> 나중에 for 문 이용해서 코드 짜서 댓글 내용들 가져오기 -->
         <!-- { #% for  %#} --> <!-- for문으로 구현하기 뒤에 내용은 변수에 따라 써주세요 (지정한변수) -->
+        {% for c in comment_list %}
         <div id="commentBox">
+          {% if request.user == c.writer %}
+          <a href="{% url 'comment_delete' post.id c.id %}" id="Commentdelete">삭제</a>
+          {% endif %}
           <img src="{% static 'images/profile.png' %}" id="profile" width="38px"> <!-- 그냥 다 같은 사진으로 하기 -->
-          <div id="name">미영</div> <!-- writer 템플릿 언어로 집어넣기 {#{ (지정한변수).writer #}}-->
-          <div id="commentContent">왜 글을 쓰다마세요..</div> <!-- comment 내용 템플릿 언어로 집어넣기 {#{(지정한 변수).comment}#} -->
+          <div id="name">{{ c.writer }}</div> <!-- writer 템플릿 언어로 집어넣기 {#{ (지정한변수).writer #}}-->
+          <div id="commentContent">{{ c }}</div>
+          <!-- comment 내용 템플릿 언어로 집어넣기 {#{(지정한 변수).comment}#} -->
         </div>
-        <!-- 삭제하는거 할 때는 => {#% if request.user == post.writer %#} : 작성자여야지만 삭제하도록 해주세용-->
-
-        <!-- {#% endfor %#}  -->
+        {% endfor %}
         {% else %}
         <div><br>
           로그인 후에 댓글 이용이 가능합니다!
