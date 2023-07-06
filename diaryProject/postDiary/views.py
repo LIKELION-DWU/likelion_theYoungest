@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import PostModelForm
-from .models import Post
+from .forms import PostModelForm, CommentForm
+from .models import Post, Comment
 from django.conf import settings
 
 def home(request): 
@@ -14,7 +14,7 @@ def home(request):
 def mainlist(request) : 
     post_list = Post.objects.all().order_by('-id')
     context = {
-        'post_list' : post_list
+        'post_list' : post_list,
     }
     return render(request, "mainList.html", context)
 
@@ -36,11 +36,10 @@ def create(request) :
     else :
         return render(request, 'input.html')
 
-# 댓글 read 부분은 여기에 구현 해주세용 
-# 댓글 가져오기(R) : comment = Comment.objects.filter(post=pk).order_by('-id')
-# 댓글 수 가져오는 거 : comment_count = comment.exclude(deleted=True).count()
 def post_update(request, id) :
     post = get_object_or_404(Post, pk=id)
+    comment_list = Comment.objects.filter(post=id).order_by('-id')
+    comment_count = comment_list.count()
     if request.method == 'POST' :
         content = request.POST.get('content')
         if content :
@@ -48,7 +47,10 @@ def post_update(request, id) :
             post.save()
         return redirect('post_update', post.id)
     else :
-        context = {'post' : post}
+        context = {'post' : post,
+        'comment_list' : comment_list,
+        'comment_count' : comment_count
+        }
         return render(request, 'check.html', context)
 
 @login_required
@@ -57,12 +59,19 @@ def post_delete(request, id) :
     post.delete()   
     return redirect('home')
 
-# 댓글 생성(C) + 삭제 (D)구현 필요 (수정(U)까지는 안해도 될 것 같아요 + 하면 좋고!)
-# 사용자가 작성한 댓글 내용은 comment = request.POST.get('comment_content') 으로 받아옵니다 
-# writer = request.user로 따로 저장해주세요 ! 
 def comment_create(request, id) :
-    pass
+    if request.method == 'POST' :
+        post = get_object_or_404(Post, pk=id)
+        comment = request.POST.get('comment_content')    
+        Comment.objects.create (
+            comment=comment,
+            writer=request.user,
+            post=post
+        )
+    return redirect('post_update', id)
 
-# 삭제는 id가 두 개 ! 
-def comment_delete(request, post_id, msg_id) :
-    pass
+def comment_delete(request, post_id, com_id) :
+    my_com = Comment.objects.get(id=com_id)
+    my_com.delete()
+
+    return redirect('post_update', post_id)
