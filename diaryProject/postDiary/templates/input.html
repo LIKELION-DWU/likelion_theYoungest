@@ -59,8 +59,9 @@
 
       <img src="{% static 'images/Rectangle 8.png' %}" id="greenBox" width="390px">
       <div id="greenArea">
-        <img src="{% static 'images/circle.png' %}" id="circle">
+        <input type="image" src="{% static 'images/circle.png' %}" id="circle" alt="save">
         <input type="image" src="{% static 'images/save.png' %}" id="save" alt="save">
+        <img src="{% static 'images/shop.png' %}" id="home" onclick="location.href='{% url 'home' %}'">
         <!-- 이미지 -->
         <label for="image-input">
           <img src="{% static 'images/image.png' %}" id="image" width="43px">
@@ -68,7 +69,6 @@
 
         <!-- 파일 선택 버튼 -->
         <input type="file" name="image" accept="image/*" id="image-input" style="display: none;">
-
       </div>
     </form>
   </div>

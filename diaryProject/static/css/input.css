@@ -89,3 +89,11 @@
   bottom: 4vh;
   right: 4vh;
 }
+
+#home {
+  bottom: 5vh;
+  right: 4vh;
+  padding-top: 5px;
+  position: absolute;
+  z-index: 1;
+}

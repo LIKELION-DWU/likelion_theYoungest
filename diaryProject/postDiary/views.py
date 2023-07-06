@@ -32,6 +32,8 @@ def create(request) :
         except:
             image = None
         content = request.POST.get('content')
+        if content == "" :
+            content = "- 내용이 없습니다. - "
         Post.objects.create (
             image=image,
             content=content,

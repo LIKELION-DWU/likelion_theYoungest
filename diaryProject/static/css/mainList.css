@@ -18,7 +18,7 @@
   margin-top: 20px;
 }
 #whiteBoxArea {
-  padding-top: 5vh;
+  padding-top: 3vh;
   margin-left: 36px;
 }
 
@@ -29,6 +29,7 @@
   border-radius: 10px;
   box-shadow: 0 0px 20px #d0d0d0;
   overflow-y: scroll;
+  padding-top: 3vb;
 }
 #whiteBox::-webkit-scrollbar {
   display: none;
@@ -46,26 +47,29 @@
 
 .boxDate {
   color: #4c7343;
-  font-weight: bold;
+  font-weight: 700;
+  font-family: "Noto Sans";
+  font-style: normal;
   font-size: 15px;
   text-align: left;
   float: left;
   width: 70%;
   margin-left: 24px;
   margin-top: -1px;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
 }
 .count {
-  font-weight: bolder;
-  text-shadow: 2px 2px 3px gray;
-  float: left;
-  width: 20%;
+  font-weight: 700;
+  float: right;
+  width: 15%;
+  margin-bottom: 2px;
 }
+
 .line {
   width: 260px;
   background-color: #bcbcbc;
   padding-top: 0px;
-  margin-top: 0px;
+  margin-top: 3vh;
 }
 
 #grayArea {
