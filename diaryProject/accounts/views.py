@@ -2,12 +2,17 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from django.contrib.auth.models import User
 
-# Create your views here.
 def signup(request)  :
     if request.method == "POST" :
         username = request.POST['userName']
         password = password=request.POST['userPassword']
+        
+        # username이 같은게 있으면 bad_join.html
+        if User.objects.filter(username=username).exists():
+            return render(request, 'bad_join.html')
+        
         user = auth.authenticate(request, username=username, password=password)
+        # 같은 user가 없을 때 -> 성공
         if user is None :
             new_user = User.objects.create_user(username=username, password=password)
             auth.login(request, new_user)
